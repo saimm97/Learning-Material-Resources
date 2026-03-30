@@ -1,2 +1,2 @@
-### Styling Tailwind Sources
+## Styling Tailwind Sources
 - https://www.creative-tim.com/
