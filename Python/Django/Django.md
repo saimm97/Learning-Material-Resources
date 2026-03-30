@@ -514,15 +514,6 @@ In pass-by-value, the value of the actual argument is copied into the formal arg
 
 `https://docs.google.com/document/d/1BrIK5zeCY4AEIDkZ1QtylxEii73dg_Zt/edit`
 
-```
-
-A couple of tiny fixes you may want before saving it:
-- the “invalid variable names” code block contains invalid Python syntax by design, so it is fine as notes
-- the “pass by reference / pass by value” section is simplified and not strictly how Python is usually explained in technical detail
-
-I can also clean this into a **better study-notes Markdown version** with numbered sections and shorter exam-style definitions.
-```
-
 # Django Views Best Practices & Examples
 
 ## 1. Function-Based Views (FBVs)
