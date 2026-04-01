@@ -268,8 +268,15 @@ class SubscriptionDeleteView(DeleteView):
 - Each model’s CRUD can inherit from a base, reducing duplication.
 
 
-
-
+## Formatting and Linting
+- Use `djlint` for formatting in your project
+- Update Cursor or VSCode settings to use djlint after installing extensions
+- Use the following for settings.json in vscode or cursor:
+` "[html][django-html][handlebars][hbs][mustache][jinja][jinja-html][nj][njk][nunjucks][twig]": 
+    {
+        "editor.defaultFormatter": "monosans.djlint"
+    }
+`
 
 
 
