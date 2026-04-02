@@ -278,6 +278,15 @@ class SubscriptionDeleteView(DeleteView):
     }
 `
 
-
+## Django Create an object with POST data
+```
+UserSubscriptions.objects.create
+        (
+            subscription_id=request.POST["subscription_type"],
+            user_id=request.user.id,
+            amount=request.POST["amount"],
+            due_date=request.POST["due_date"],
+        )
+```
 
 
