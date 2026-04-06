@@ -23,6 +23,8 @@ Examples:
 - In all examples above, we first train our model with inputs X and output Y for correct answers, so that it can learn.
 - After the model has learned using X and Y pairs, it then takes fresh input only and tries to give the output Y itself through what it has learned.
 
+## Regression (Type of Supervised Learning)
+
 <img width="1032" height="514" alt="image" src="https://github.com/user-attachments/assets/908bf713-cd66-4250-9eec-180cae2a5c56" />
 
 - Above is an example of a house prediction model.
