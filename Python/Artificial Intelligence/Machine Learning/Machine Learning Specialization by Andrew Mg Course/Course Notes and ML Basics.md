@@ -25,7 +25,7 @@ Examples:
 
 ## Regression (Type of Supervised Learning)
 
-<img width="1032" height="514" alt="image" src="https://github.com/user-attachments/assets/908bf713-cd66-4250-9eec-180cae2a5c56" />
+<img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/908bf713-cd66-4250-9eec-180cae2a5c56" />
 
 - Above is an example of a house prediction model.
 - We made the model through X, Y pairs, i.e., inputs, outputs.
@@ -35,3 +35,41 @@ Examples:
 - Selecting the function has to be decided through special understanding.
 - Where prediction comes in, that type of Supervised learning is known as Regression (Predicting Something, a number)
 - One thing you see is how to get an algorithm to systematically choose the most appropriate line or curve or other thing to fit to this data.
+
+## Classification (Type of Supervised Learning)
+
+<img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/2e29eaf7-974a-44b6-a2bf-e65f47c191bf" />
+
+- Imagine we have to detect Breast Cancer and we are building a machine learning system for that.
+- Using the patient's medical records and history to feed to the system
+- If a tumor is dangerous and cancerous, we call it malignant.
+- If the tumor is not that dangerous than we call it begnin
+- Imagine our dataset has the size of the tumor shown on the right side in the table,
+  along with it, we label begnin with 0 and malignant with 1.
+- X axis shows tumor size, Y axis shows tumor is 0 (begnin) , 1 (malignant)
+- Now Classification is different from Regression as it will make a prediction
+  based on a set of possible results, unlike Regression, which has an infinite number of results list and it has
+  to answer from them. That's why Classification problem  has small set of answers and is different from regression.
+  Regression will result in form of a number. Classification can be either text or a number from possible results.
+
+  
+
+### Example as Plotting the Graph on a Straight line
+
+<img width="919" height="166" alt="image" src="https://github.com/user-attachments/assets/adb90761-a184-49a2-80bc-2ced3b8b2a22" />
+
+  - This dataset can be plotted on a straightline as well.
+  - Now imagine the black mark, the patient falls here, would it be malignant or benign?
+  - Classification can have more than 2 possible results (classes,category)
+
+
+
+### Example with Multiple Inputs
+
+<img width="781" height="496" alt="image" src="https://github.com/user-attachments/assets/1667ca62-d134-42d9-8fcb-e8148afda5d9" />
+
+- Now in this Scenario, it is possible there could be more than one input required in a problem.
+- Here we have age and tumor size as input, now how we will classify it is benign or malignant?
+- In case of multiple inputs, there has to be boundary line for differenciation as the yellow line shown in
+  the graph. This boundary line helps us to identify that more likely the tumor is benign. This is how
+  we classify the result if there are multiple inputs by having a boundary to seperate the likeliness of a result.
