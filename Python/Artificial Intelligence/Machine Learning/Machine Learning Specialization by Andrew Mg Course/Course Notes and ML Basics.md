@@ -69,7 +69,8 @@ Examples:
 <img width="781" height="496" alt="image" src="https://github.com/user-attachments/assets/1667ca62-d134-42d9-8fcb-e8148afda5d9" />
 
 - Now in this Scenario, it is possible there could be more than one input required in a problem.
-- Here we have age and tumor size as input, now how we will classify it is benign or malignant?
-- In case of multiple inputs, there has to be boundary line for differenciation as the yellow line shown in
-  the graph. This boundary line helps us to identify that more likely the tumor is benign. This is how
-  we classify the result if there are multiple inputs by having a boundary to seperate the likeliness of a result.
+- Here we have age and tumour size as input, now how will we classify it is benign or malignant?
+- Keeping the pink circle as the identification area of tumor.
+- In case of multiple inputs, there has to be a boundary line for differentiation, as the yellow line shown in
+  the graph. This boundary line helps us to identify that the tumor is benign. This is how
+  we classify the result if there are multiple inputs by having a boundary to separate the likelihood of a result.
