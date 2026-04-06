@@ -32,3 +32,4 @@ Examples:
 - Or the house price can be predicted by a more complex function denoted by a curve line.
 - Selecting the function has to be decided through special understanding.
 - Where prediction comes in, that type of Supervised learning is known as Regression (Predicting Something, a number)
+- One thing you see is how to get an algorithm to systematically choose the most appropriate line or curve or other thing to fit to this data.
