@@ -38,6 +38,8 @@ Examples:
 
 ## Classification (Type of Supervised Learning)
 
+### 1. Example of Classification with Single Input and Output
+
 <img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/2e29eaf7-974a-44b6-a2bf-e65f47c191bf" />
 
 - Imagine we have to detect Breast Cancer and we are building a machine learning system for that.
@@ -54,7 +56,7 @@ Examples:
 
   
 
-### Example as Plotting the Graph on a Straight line
+### 2. Example as Plotting the Graph on a Straight line
 
 <img width="919" height="166" alt="image" src="https://github.com/user-attachments/assets/adb90761-a184-49a2-80bc-2ced3b8b2a22" />
 
@@ -64,7 +66,7 @@ Examples:
 
 
 
-### Example with Multiple Inputs
+### 3. Example with Multiple Inputs
 
 <img width="781" height="496" alt="image" src="https://github.com/user-attachments/assets/1667ca62-d134-42d9-8fcb-e8148afda5d9" />
 
