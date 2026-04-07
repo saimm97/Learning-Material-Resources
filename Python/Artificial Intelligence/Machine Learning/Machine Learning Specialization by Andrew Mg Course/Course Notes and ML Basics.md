@@ -85,6 +85,7 @@ Examples:
   is known as a Clustering Algorithm.
 - In the clustering algorithm of Unsupervised Learning, the dataset is unlabeled.
 - Similar Results are grouped in different clusters and then the point on the graph predicts the result based on the cluster.
+- We ask the algorithm to figure out all by itself what's interesting or what patterns or structures there might be in this data
 
 
 ### 1. Example: Google News
@@ -108,4 +109,6 @@ Examples:
 
 
 <img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f4193144-83a3-4cd5-8720-5c17819078c8" />
+
+- This is a clustering that our team used to try to better serve our community as we're trying to figure out what the major categories of learners are in the DeepLearning.ai community.
 
