@@ -10,7 +10,6 @@ Having tools is not enough to build a good Machine Learning system,
 You have to practice equally well and know when to apply them, and how to apply them
 
 ## Supervised Learning
-
 - Key characteristic that we give our learning algorithms examples to learn from, and include the right answers
 - Second is that by giving correct pairs of input X and desired output Y, the learning algorithm eventually learns 
 to take input only without the output label Y and gives accurate result, prediction, and guess
@@ -49,22 +48,18 @@ Examples:
 - Imagine our dataset has the size of the tumor shown on the right side in the table,
   along with it, we label begnin with 0 and malignant with 1.
 - X axis shows tumor size, Y axis shows tumor is 0 (begnin) , 1 (malignant)
-- Now Classification is different from Regression as it will make a prediction
-  based on a set of possible results, unlike Regression, which has an infinite number of results list and it has
-  to answer from them. That's why Classification problem  has small set of answers and is different from regression.
-  Regression will result in form of a number. Classification can be either text or a number from possible results.
+- Now, Classification is different from Regression as it will make a prediction
+  based on a set of possible results, unlike Regression, which has an infinite number of possible results list and it has
+  to answer from them. That's why the classification problem  has a small set of answers and is different from regression.
+  Regression will result in the form of a number. Classification can be either text or a number from the possible results.
 
-  
-
-### 2. Example as Plotting the Graph on a Straight line
+### 2. Example: Plotting the Graph on a Straight Line
 
 <img width="919" height="166" alt="image" src="https://github.com/user-attachments/assets/adb90761-a184-49a2-80bc-2ced3b8b2a22" />
 
-  - This dataset can be plotted on a straightline as well.
+  - This dataset can be plotted on a straight line as well.
   - Now imagine the black mark, the patient falls here, would it be malignant or benign?
-  - Classification can have more than 2 possible results (classes,category)
-
-
+  - Classification can have more than 2 possible results (classes, categories)
 
 ### 3. Example with Multiple Inputs
 
@@ -72,7 +67,20 @@ Examples:
 
 - Now in this Scenario, it is possible there could be more than one input required in a problem.
 - Here we have age and tumour size as input, now how will we classify it is benign or malignant?
-- Keeping the pink circle as the identification area of tumor.
+- Keeping the pink circle as the identification area of the tumor.
 - In case of multiple inputs, there has to be a boundary line for differentiation, as the yellow line shown in
   the graph. This boundary line helps us to identify that the tumor is benign. This is how
   we classify the result if there are multiple inputs by having a boundary to separate the likelihood of a result.
+
+## Unsupervised Learning
+<img width="600" height="800" alt="image" src="https://github.com/user-attachments/assets/504740ee-f654-4d07-ac05-37eb7fb64471" />
+
+
+
+- In Supervised Learning we have set of right answers
+- This is another type of machine learning model: unsupervised learning
+- In this type, we don't have a labelled dataset, unlike supervised learning
+  We don't give a set of possible output results to the model and the problem.
+- Unsupervised learning only has a set of Inputs.
+
+  
