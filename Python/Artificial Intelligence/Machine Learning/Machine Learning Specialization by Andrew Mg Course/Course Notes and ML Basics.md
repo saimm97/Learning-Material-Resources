@@ -73,14 +73,36 @@ Examples:
   we classify the result if there are multiple inputs by having a boundary to separate the likelihood of a result.
 
 ## Unsupervised Learning
-<img width="600" height="800" alt="image" src="https://github.com/user-attachments/assets/504740ee-f654-4d07-ac05-37eb7fb64471" />
 
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/6688a3e1-d74e-44cf-a7d5-1a085ea1f163" />
 
-
-- In Supervised Learning we have set of right answers
+- In Supervised Learning, we have a set of right answers
 - This is another type of machine learning model: unsupervised learning
 - In this type, we don't have a labelled dataset, unlike supervised learning
   We don't give a set of possible output results to the model and the problem.
 - Unsupervised learning only has a set of Inputs.
+- As in the graph above, such a dataset being unlabelled and results possible to group with the similar ones
+  is known as a Clustering Algorithm.
+- In the clustering algorithm of Unsupervised Learning, the dataset is unlabeled.
+- Similar Results are grouped in different clusters and then the point on the graph predicts the result based on the cluster.
 
-  
+
+### 1. Example: Google News
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/1661cf69-4d27-4081-adc4-43e2ca012adc" />
+
+- Google News works by clustering similar data.
+- Looks for stories, news and clusters the similar ones.
+- As we can see in the picture above, the search results of Panada, twin, and zoo are matching
+  and showing in one cluster
+- The Clustering algorithm itself groups similar words and news in one cluster and answers accordingly.
+
+
+### 1. Example: Micro Detection
+
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/523a3063-17a7-436d-9a71-dad5183f4b53" />
+
+### 3. Example: Customer Group Segmentation
+
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f4193144-83a3-4cd5-8720-5c17819078c8" />
+
