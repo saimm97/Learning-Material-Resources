@@ -112,3 +112,10 @@ Examples:
 
 - This is a clustering that our team used to try to better serve our community as we're trying to figure out what the major categories of learners are in the DeepLearning.ai community.
 
+
+
+### Other Types of Unsupervised Learning
+
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/5ac2e9a1-c519-4a65-b561-9d6892add0c7" />
+
+
