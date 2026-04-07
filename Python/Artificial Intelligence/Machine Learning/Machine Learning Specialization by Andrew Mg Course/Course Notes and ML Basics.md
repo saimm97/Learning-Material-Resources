@@ -89,6 +89,7 @@ Examples:
 
 ### 1. Example: Google News
 
+
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/1661cf69-4d27-4081-adc4-43e2ca012adc" />
 
 - Google News works by clustering similar data.
@@ -100,9 +101,11 @@ Examples:
 
 ### 1. Example: Micro Detection
 
+
 <img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/523a3063-17a7-436d-9a71-dad5183f4b53" />
 
 ### 3. Example: Customer Group Segmentation
+
 
 <img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f4193144-83a3-4cd5-8720-5c17819078c8" />
 
