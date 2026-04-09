@@ -127,16 +127,25 @@ Examples:
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/444e7c44-04c2-4b88-9543-fddef6ecd551" />
 
 
-
 - Linear Regression is one main type of Regression problem where we get straightline fit for predicting the result.
 - Any Supervised model that predicts a number as a result is known as a regression problem.
 - We give labelled dataset as inputs x,y, and we get a straight line fit on the graph to predict the value based on linear Regression
 - Assume we have to predict the price of a house based on the size of the house (x-axis) , price on (y-axis)
-- Price denotes the most recently built house, which means we have trained data on possible results. The right answers are given in dataset
-- Using the graph we are prediciting price of a house with 1250cm sq ft based on a straight line fit our model can depict which is $ 220k 
+- Price denotes the most recently built house, which means we have trained data on possible results. The right answers are given in the dataset
+- Using the graph, we are prediciting price of a house with 1250cm sq ft based on a straight line fit our model can depict, which is $ 220k.
 
-  
-
-
+- Another type of Supervised learning is a classification model; there are only a small number of outputs.
 
 
+### Terminologies
+
+###  Training Set
+    - The data used to train the model is known as the training set.
+
+### Input Variable/Feature 
+   - The standard notation to denote inputs or input variables is lower case x, known as a feature or, in the case of multiple inputs, as a feature set.
+
+### Target Set
+  - The standard notation to denote inputs or output variables is lower case y, known as the target variable
+
+### To denote all the possible training examples we use "m" meaning all the training examples like (x,y) => (40,90) , (90,300) , (600,450)
