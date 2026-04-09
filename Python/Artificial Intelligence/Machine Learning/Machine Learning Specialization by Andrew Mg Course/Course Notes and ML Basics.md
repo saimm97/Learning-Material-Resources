@@ -126,8 +126,9 @@ Examples:
 - Using the graph, we are prediciting price of a house with 1250cm sq ft based on a straight line fit our model can depict, which is $ 220k.
 - Another type of Supervised learning is a classification model; there are only a small number of outputs.
 
-
 ### Terminologies
+
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/3a7650f6-07fe-47d1-bc0c-2cda7ec1912f" />
 
 ###  Training Set
     - The data used to train the model is known as the training set.
@@ -138,8 +139,5 @@ Examples:
 ### Target Set
   - The standard notation to denote inputs or output variables is lower case y, known as the target variable
   -  To denote all the possible training examples, we use "m" meaning all the training examples like (x,y) => (40,90), (90,300), (600,450)
-
-<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/3a7650f6-07fe-47d1-bc0c-2cda7ec1912f" />
-
-- In the picture above, i in superscript doesn't represent power, it shows the "ith" training set. This is not exponent
+  - In the picture above, i in superscript doesn't represent power, it shows the "ith" training set. This is not exponent
 
