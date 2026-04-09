@@ -113,11 +113,9 @@ Examples:
 - This is a clustering that our team used to try to better serve our community as we're trying to figure out what the major categories of learners are in the DeepLearning.ai community.
 
 
-
 ### Other Types of Unsupervised Learning
 
 <img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/5ac2e9a1-c519-4a65-b561-9d6892add0c7" />
-
 
 
 ## Supervised Learning:
@@ -147,5 +145,8 @@ Examples:
 
 ### Target Set
   - The standard notation to denote inputs or output variables is lower case y, known as the target variable
+  -  To denote all the possible training examples, we use "m" meaning all the training examples like (x,y) => (40,90), (90,300), (600,450)
 
-### To denote all the possible training examples we use "m" meaning all the training examples like (x,y) => (40,90) , (90,300) , (600,450)
+
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/3a7650f6-07fe-47d1-bc0c-2cda7ec1912f" />
+
