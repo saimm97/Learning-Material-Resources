@@ -134,10 +134,14 @@ Examples:
     - The data used to train the model is known as the training set.
 
 ### Input Variable/Feature 
+   ```
    - The standard notation to denote inputs or input variables is lower case x, known as a feature or, in the case of multiple inputs, as a feature set.
+  ```
 
 ### Target Set
-  - The standard notation to denote inputs or output variables is lower case y, known as the target variable
+  ```
+  - The standard notation to denote inputs or output variables is lower case y, known as the target variable.
   -  To denote all the possible training examples, we use "m" meaning all the training examples like (x,y) => (40,90), (90,300), (600,450)
-  - In the picture above, i in superscript doesn't represent power, it shows the "ith" training set. This is not exponent
+  - In the picture above, i in superscript doesn't represent power, it shows the "ith" training set. This is not an exponent.
+  ```
 
