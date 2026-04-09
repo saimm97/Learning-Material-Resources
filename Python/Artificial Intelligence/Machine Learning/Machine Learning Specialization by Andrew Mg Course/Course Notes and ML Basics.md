@@ -90,7 +90,6 @@ Examples:
 
 ### 1. Example: Google News
 
-
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/1661cf69-4d27-4081-adc4-43e2ca012adc" />
 
 - Google News works by clustering similar data.
@@ -99,14 +98,10 @@ Examples:
   and showing in one cluster
 - The Clustering algorithm itself groups similar words and news in one cluster and answers accordingly.
 
-
 ### 1. Example: Micro Detection
-
-
 <img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/523a3063-17a7-436d-9a71-dad5183f4b53" />
 
 ### 3. Example: Customer Group Segmentation
-
 
 <img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f4193144-83a3-4cd5-8720-5c17819078c8" />
 
@@ -114,7 +109,6 @@ Examples:
 
 
 ### Other Types of Unsupervised Learning
-
 <img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/5ac2e9a1-c519-4a65-b561-9d6892add0c7" />
 
 
@@ -124,14 +118,12 @@ Examples:
 
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/444e7c44-04c2-4b88-9543-fddef6ecd551" />
 
-
 - Linear Regression is one main type of Regression problem where we get straightline fit for predicting the result.
 - Any Supervised model that predicts a number as a result is known as a regression problem.
 - We give labelled dataset as inputs x,y, and we get a straight line fit on the graph to predict the value based on linear Regression
 - Assume we have to predict the price of a house based on the size of the house (x-axis) , price on (y-axis)
 - Price denotes the most recently built house, which means we have trained data on possible results. The right answers are given in the dataset
 - Using the graph, we are prediciting price of a house with 1250cm sq ft based on a straight line fit our model can depict, which is $ 220k.
-
 - Another type of Supervised learning is a classification model; there are only a small number of outputs.
 
 
@@ -147,6 +139,7 @@ Examples:
   - The standard notation to denote inputs or output variables is lower case y, known as the target variable
   -  To denote all the possible training examples, we use "m" meaning all the training examples like (x,y) => (40,90), (90,300), (600,450)
 
-
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/3a7650f6-07fe-47d1-bc0c-2cda7ec1912f" />
+
+- In the picture above, i in superscript doesn't represent power, it shows the "ith" training set. This is not exponent
 
