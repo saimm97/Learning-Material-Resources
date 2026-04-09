@@ -130,6 +130,9 @@ Examples:
 
 <img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/3a7650f6-07fe-47d1-bc0c-2cda7ec1912f" />
 
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/1debd617-2f09-4bea-b5a7-900606d0a942" />
+
+
 ###  Training Set
     - The data used to train the model is known as the training set.
 
@@ -145,3 +148,4 @@ Examples:
   - In the picture above, i in superscript doesn't represent power, it shows the "ith" training set. This is not an exponent.
   ```
 
+<img width="2543" height="1258" alt="image" src="https://github.com/user-attachments/assets/ae95888d-d73f-4db3-8d9c-f8919bb54887" />
