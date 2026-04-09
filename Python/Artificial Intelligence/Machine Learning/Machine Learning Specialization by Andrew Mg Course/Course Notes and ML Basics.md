@@ -119,3 +119,24 @@ Examples:
 <img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/5ac2e9a1-c519-4a65-b561-9d6892add0c7" />
 
 
+
+## Supervised Learning:
+
+### Linear Regression
+
+<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/444e7c44-04c2-4b88-9543-fddef6ecd551" />
+
+
+
+- Linear Regression is one main type of Regression problem where we get straightline fit for predicting the result.
+- Any Supervised model that predicts a number as a result is known as a regression problem.
+- We give labelled dataset as inputs x,y, and we get a straight line fit on the graph to predict the value based on linear Regression
+- Assume we have to predict the price of a house based on the size of the house (x-axis) , price on (y-axis)
+- Price denotes the most recently built house, which means we have trained data on possible results. The right answers are given in dataset
+- Using the graph we are prediciting price of a house with 1250cm sq ft based on a straight line fit our model can depict which is $ 220k 
+
+  
+
+
+
+
