@@ -149,3 +149,30 @@ Examples:
   ```
 
 <img width="2543" height="1258" alt="image" src="https://github.com/user-attachments/assets/ae95888d-d73f-4db3-8d9c-f8919bb54887" />
+
+
+## Cost Function
+
+### Squared Error Cost Function 
+
+<img width="1977" height="996" alt="image" src="https://github.com/user-attachments/assets/ba71f82a-fb14-4c73-921f-0362333d91ca" />
+
+$$J(w,b) = \frac{1}{2m}\sum_{i=1}^{m}\left(f_{w,b}(x^{(i)}) - y^{(i)}\right)^2$$
+
+Reading it piece by piece:
+- y(i) = the *actual* value (the real data point)
+- y^​(i)=fw,b​(x(i)) = the *predicted* value (where the line says it should be)
+   
+- $f_{w,b}(x^{(i)}) - y^{(i)}$ → the error (prediction minus actual) for one example
+- $\left(\dots\right)^2$ → square it, so errors are always positive and big errors count more
+- $\sum_{i=1}^{m}$ → add up over all $m$ training examples
+- $\frac{1}{m}$ → average it
+- the extra $\frac{1}{2}$ → a convenience that makes the calculus cleaner later (when you take derivatives for gradient descent, the 2 cancels out)
+## The goal
+ 
+> Find $w, b$ such that $\hat{y}^{(i)}$ is close to $y^{(i)}$ for all points.
+ 
+
+
+
+
