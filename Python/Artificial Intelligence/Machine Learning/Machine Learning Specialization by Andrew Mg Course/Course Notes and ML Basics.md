@@ -171,6 +171,10 @@ Reading it piece by piece:
 ## The goal
  
 > Find $w, b$ such that $\hat{y}^{(i)}$ is close to $y^{(i)}$ for all points.
+- In other words, choose the slope and intercept that make J(w,b)J(w,b)
+J(w,b) as small as possible. A small cost means the line fits the data well; a large cost means predictions are far off. The next step in the course (gradient descent) is the algorithm that actually finds those best values of ww
+w and bb
+b.
  
 
 
