@@ -231,4 +231,47 @@ That "rolling downhill to the bottom" is literally the next algorithm: **gradien
  
 
 
+# Visualizing the Cost function
+
+
+<img width="1828" height="898" alt="image" src="https://github.com/user-attachments/assets/95d99cda-19fa-44bf-a51a-8ec7fb8a5ba6" />
+
+
+# Model, Parameters, Cost function, Objective
+
+<img width="1859" height="977" alt="image" src="https://github.com/user-attachments/assets/74c224b9-0bf1-41c7-8cce-7354d80b5091" />
+
+- Here we will see how f(w,b) => function of x  relates to J(w) => function of w,b
+- Formula f(x) = wx + b , we assume w + 0.06 , b = 50
+- f(x) = 0.06w + 50
+- When we had b = 0, and w had values, we got the shape of a bowl for J(w,b)
+- Though the plot becomes a bit complex
+
+<img width="1671" height="973" alt="image" src="https://github.com/user-attachments/assets/ec9cf91f-b9f8-4d66-979a-2ce3b3e9bf8d" />
+
+
+- Now, in this plot, we have values for w and b both.
+- For example, if w = -10, b = -15 than height of the surface above  these two would be the J(w= -10, b= -15
+
+<img width="1749" height="970" alt="image" src="https://github.com/user-attachments/assets/b5468fdc-6369-4d42-8401-42a23db2548a" />
+
+- Another way to plot this function is to use a contour plot.
+- Overall we can see all these points fit terribly and away from the best first value of J.
+- We use contour plots when there are multiple inputs.
+
+**Top-left plot (f_w,b):** This shows your data — house prices vs. size in feet². The red X's are training examples. The three colored lines (blue, orange, green) are three different candidate models f(x) = wx + b. Notice all three lines fit the data terribly — they have negative slopes and sit way below the data points. These are bad parameter choices, chosen to illustrate a point.
+
+**Top-right plot (contour plot):** This is the key one. The cost function J(w, b) depends on two variables, w and b. To plot a function of two inputs you'd normally need 3D, but a contour plot collapses it into 2D — like a topographic map.
+
+A contour plot works by drawing lines that connect points of equal height (equal cost J). Each ellipse/ring is one "elevation" of cost:
+- Points on the same ring have the **same** value of J
+- The center of the rings is the **lowest** cost — the minimum, where the best (w, b) lives
+- Rings far from the center mean **high** cost (bad fit)
+
+The three colored X's mark where the three lines from the left plot sit in (w, b) space. They're all far from the center, in the outer rings — which is exactly why they fit the data so poorly. The dashed lines just project each point down to read off its w and b coordinates.
+
+**Bottom plot (3D surface):** This is the *same* cost function J, but shown in full 3D as a bowl-shaped surface. The contour plot above is literally this bowl viewed from directly overhead, with the rings being slices at different heights. The bottom (minimum of the bowl) corresponds to the center of the contour rings. The three colored X's sit high up on the walls of the bowl — again showing high cost.
+
+**The big idea:** Minimizing the cost means moving toward the center of the contour rings / the bottom of the bowl. That's what gradient descent does — it walks "downhill" on this surface to find the (w, b) that best fits the data.
+
 
