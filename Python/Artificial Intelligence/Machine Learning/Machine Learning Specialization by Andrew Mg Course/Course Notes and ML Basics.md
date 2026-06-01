@@ -275,3 +275,30 @@ The three colored X's mark where the three lines from the left plot sit in (w, b
 **The big idea:** Minimizing the cost means moving toward the center of the contour rings / the bottom of the bowl. That's what gradient descent does — it walks "downhill" on this surface to find the (w, b) that best fits the data.
 
 
+
+## Code for Linear Regression Cost Formula with one Variable
+
+The term 'cost' in this assignment might be a little confusing since the data is housing cost. Here, cost is a measure of how well our model is predicting the target price of the house. The term 'price' is used for housing data.
+
+The equation for cost with one variable is:
+𝐽(𝑤,𝑏)=12𝑚∑𝑖=0𝑚−1(𝑓𝑤,𝑏(𝑥(𝑖))−𝑦(𝑖))2(1)
+
+where
+𝑓𝑤,𝑏(𝑥(𝑖))=𝑤𝑥(𝑖)+𝑏(2)
+
+𝑓𝑤,𝑏(𝑥(𝑖))
+  is our prediction for example  𝑖
+  using parameters  𝑤,𝑏
+ .
+(𝑓𝑤,𝑏(𝑥(𝑖))−𝑦(𝑖))2
+  is the squared difference between the target value and the prediction.
+These differences are summed over all the  𝑚
+  examples and divided by 2m to produce the cost,  𝐽(𝑤,𝑏)
+ .
+Note, in lecture summation ranges are typically from 1 to m, while code will be from 0 to m-1.
+
+
+
+
+
+
