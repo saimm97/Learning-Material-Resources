@@ -111,7 +111,6 @@ Examples:
 ### Other Types of Unsupervised Learning
 <img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/5ac2e9a1-c519-4a65-b561-9d6892add0c7" />
 
-
 ## Supervised Learning:
 
 ### Linear Regression
@@ -149,7 +148,6 @@ Examples:
   ```
 
 <img width="2543" height="1258" alt="image" src="https://github.com/user-attachments/assets/ae95888d-d73f-4db3-8d9c-f8919bb54887" />
-
 
 ## Cost Function
 
@@ -273,7 +271,6 @@ The three colored X's mark where the three lines from the left plot sit in (w, b
 **Bottom plot (3D surface):** This is the *same* cost function J, but shown in full 3D as a bowl-shaped surface. The contour plot above is literally this bowl viewed from directly overhead, with the rings being slices at different heights. The bottom (minimum of the bowl) corresponds to the center of the contour rings. The three colored X's sit high up on the walls of the bowl — again showing high cost.
 
 **The big idea:** Minimizing the cost means moving toward the center of the contour rings / the bottom of the bowl. That's what gradient descent does — it walks "downhill" on this surface to find the (w, b) that best fits the data.
-
 
 
 ## Code for Linear Regression Cost Formula with one Variable
