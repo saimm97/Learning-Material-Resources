@@ -259,7 +259,7 @@ That "rolling downhill to the bottom" is literally the next algorithm: **gradien
 
 **Top-left plot (f_w,b):** This shows your data — house prices vs. size in feet². The red X's are training examples. The three colored lines (blue, orange, green) are three different candidate models f(x) = wx + b. Notice all three lines fit the data terribly — they have negative slopes and sit way below the data points. These are bad parameter choices, chosen to illustrate a point.
 
-**Top-right plot (contour plot):** This is the key one. The cost function J(w, b) depends on two variables, w and b. To plot a function of two inputs you'd normally need 3D, but a contour plot collapses it into 2D — like a topographic map.
+**Top-right plot (contour plot):** This is the key one. The cost function J(w, b) depends on two variables, w and b. To plot a function of two inputs, you'd normally need 3D, but a contour plot collapses it into 2D — like a topographic map.
 
 A contour plot works by drawing lines that connect points of equal height (equal cost J). Each ellipse/ring is one "elevation" of cost:
 - Points on the same ring have the **same** value of J
@@ -275,8 +275,8 @@ The three colored X's mark where the three lines from the left plot sit in (w, b
 
 ## Code for Linear Regression Cost Formula with one Variable
 
-## Computing Cost
-The term 'cost' in this assignment might be a little confusing since the data is housing cost. Here, cost is a measure of how well our model is predicting the target price of the house. The term 'price' is used for housing data.
+### Computing Cost
+The term 'cost' in this assignment might be a little confusing, since the data is housing cost data. Here, cost is a measure of how well our model is predicting the target price of the house. The term 'price' is used for housing data.
 
 The equation for cost with one variable is:
   $$J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2 \tag{1}$$ 
@@ -288,6 +288,19 @@ where
 - $(f_{w,b}(x^{(i)}) -y^{(i)})^2$ is the squared difference between the target value and the prediction.   
 - These differences are summed over all the $m$ examples and divided by `2m` to produce the cost, $J(w,b)$.  
 >Note, in lecture summation ranges are typically from 1 to m, while code will be from 0 to m-1.
+
+### Gradient Descent
+
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/581f55c8-9fe2-4925-93be-6ea8c7cc5056" />
+
+- Gradient Descent is a function that can be used to minimize any function, not only a linear function
+- Gradient Descent applies to more general functions or other cost functions having 2 parameters
+- Imagine we have a cost function J = J(w1..w2...w3 wn), our goal is to minimize cost J over parameters (w1, w2,,wn, b). Gradient Descent can be used to minimize it
+- What we will do is start with some initial values of w and b. As this is linear regression, we can take w=0, b=0.
+- By taking small guesses, we will use gradient descent to minimize the cost.
+- We will continue to change the value of w,b at the point till the J(w,b) settles near the minimum.
+
+<img width="900" height="800" alt="image" src="https://github.com/user-attachments/assets/6d6c7e81-ecbc-49a6-9b56-d4412570deba" />
 
 
 
