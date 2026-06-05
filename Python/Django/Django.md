@@ -289,4 +289,77 @@ UserSubscriptions.objects.create
         )
 ```
 
+## Celery Setup on Django 
+
+### 1. Install Celery
+
+```bash
+pip3 install celery
+```
+
+For Redis broker/backend support:
+
+```bash
+pip3 install "celery[redis]"
+```
+
+For RabbitMQ (amqp), broker support ships with Celery, but you need the RabbitMQ server installed and running.
+
+### 2. Create Runtime Directories
+
+These hold PID and log files when running workers via `celery multi`:
+
+```bash
+mkdir -p /var/run/celery
+mkdir -p /var/log/celery
+```
+
+### 3. Set Permissions
+
+Ensure the user running Celery can write to those directories:
+
+```bash
+sudo chown -R $USER:$USER /var/run/celery /var/log/celery
+```
+
+### 4. Create `<project>/celery.py`
+
+```python
+import os
+from celery import Celery
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proj.settings')
+
+app = Celery(
+    'proj',
+    broker='amqp://',
+    backend='rpc://',
+    include=['proj.tasks'],
+)
+
+app.config_from_object('django.conf:settings', namespace='CELERY')
+app.autodiscover_tasks()
+```
+
+### 5. Create `<project>/tasks.py`
+
+```python
+from celery import shared_task
+
+@shared_task
+def add(x, y):
+    return x + y
+```
+
+> Avoid defining a second `Celery()` instance here. Import the app from `celery.py` or use `@shared_task` so tasks aren't bound to a specific app.
+
+### 6. Start the Worker
+
+```bash
+celery multi start w1 -A settlesubscribe -l INFO
+```
+
+Expected output:
+
+
 
