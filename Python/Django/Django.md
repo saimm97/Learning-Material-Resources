@@ -361,5 +361,11 @@ celery multi start w1 -A settlesubscribe -l INFO
 
 Expected output:
 
+Starting nodes...
+> w1@MacBook-Pro-8.local: OK
+
+https://docs.celeryq.dev/en/latest/getting-started/next-steps.html#project-layout
+https://docs.celeryq.dev/en/latest/getting-started/first-steps-with-celery.html#first-steps
+
 
 
