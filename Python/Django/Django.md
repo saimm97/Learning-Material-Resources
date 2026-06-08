@@ -367,5 +367,7 @@ Starting nodes...
 https://docs.celeryq.dev/en/latest/getting-started/next-steps.html#project-layout
 https://docs.celeryq.dev/en/latest/getting-started/first-steps-with-celery.html#first-steps
 
+### Note: Install the redis package, or any other backend in your django project than this set up would work
+`pip3 install redis`
 
 
