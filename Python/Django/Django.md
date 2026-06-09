@@ -367,6 +367,9 @@ Starting nodes...
 https://docs.celeryq.dev/en/latest/getting-started/next-steps.html#project-layout
 https://docs.celeryq.dev/en/latest/getting-started/first-steps-with-celery.html#first-steps
 
+### Backend (S3, other providers) Configurations
+https://docs.celeryq.dev/en/stable/userguide/configuration.html#std-setting-beat_schedule
+
 ### Note: Install the redis package, or any other backend in your django project than this set up would work
 `pip3 install redis`
 
