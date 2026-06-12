@@ -293,34 +293,61 @@ UserSubscriptions.objects.create
 
 ### 1. Install Celery
 
+# Setting Up Celery with Django
+
+A guide for configuring Celery with Django, including periodic tasks, result backends, and monitoring.
+
+---
+
+## 1. Installation
+
+### Core Celery
+
 ```bash
 pip3 install celery
 ```
 
-For Redis broker/backend support:
+### With Redis broker/backend support
 
 ```bash
 pip3 install "celery[redis]"
 ```
 
-### Additional Installation packages
+> For **RabbitMQ (amqp)**, broker support ships with Celery, but you need the RabbitMQ server installed and running.
 
-`pip install django-celery-beat` 
-`python manage.py migrate`
-`celery -A proj beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler`
+### Additional Packages
 
-Visit the Django-Admin interface to set up some periodic tasks.
+**Periodic task scheduling (django-celery-beat):**
 
+```bash
+pip install django-celery-beat
+python manage.py migrate
+celery -A proj beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+```
 
+**Storing results in the database (django-celery-results):**
 
+```bash
+pip install django-celery-results
+```
 
+Then add to `settings.py`:
 
+```python
+CELERY_RESULT_BACKEND = 'django-db'
+```
 
+**Redis package (or any other backend) in your Django project:**
 
+```bash
+pip3 install redis
+```
 
-For RabbitMQ (amqp), broker support ships with Celery, but you need the RabbitMQ server installed and running.
+> Visit the **Django Admin** interface to set up periodic tasks once `django-celery-beat` is configured.
 
-### 2. Create Runtime Directories
+---
+
+## 2. Create Runtime Directories
 
 These hold PID and log files when running workers via `celery multi`:
 
@@ -329,7 +356,9 @@ mkdir -p /var/run/celery
 mkdir -p /var/log/celery
 ```
 
-### 3. Set Permissions
+---
+
+## 3. Set Permissions
 
 Ensure the user running Celery can write to those directories:
 
@@ -337,7 +366,9 @@ Ensure the user running Celery can write to those directories:
 sudo chown -R $USER:$USER /var/run/celery /var/log/celery
 ```
 
-### 4. Create `<project>/celery.py`
+---
+
+## 4. Create `<project>/celery.py`
 
 ```python
 import os
@@ -356,7 +387,110 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 ```
 
-### 5. Create `<project>/tasks.py`
+---
+
+## 4b. Update `<project>/__init__.py`
+
+**Important & easy to miss.** This ensures the Celery app is loaded when Django starts, so `@shared_task` works everywhere. Without it, tasks often fail to register.
+
+```python
+from .celery import app as celery_app
+
+__all__ = ('celery_app',)
+```
+
+---
+
+## 4c. Add Celery Settings to `settings.py`
+
+Because of `namespace='CELERY'`, every option is uppercase and prefixed with `CELERY_`. A typical block:
+
+```python
+# Celery Configuration
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'django-db'        # or 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
+# Use the database scheduler for django-celery-beat
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+```
+
+Also add the helper apps to `INSTALLED_APPS`:
+
+```python
+INSTALLED_APPS = [
+    # ...
+    'django_celery_beat',
+    'django_celery_results',
+]
+```
+
+> **Celery 6.0 note:** `broker_connection_retry` no longer controls startup retries. To keep retrying the broker connection on startup, set `CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True`.
+
+### Broker URL Formats (alternatives to Redis)
+
+Swap the value of `CELERY_BROKER_URL` depending on which broker you use:
+
+```python
+# Redis
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+# Redis with password / TLS
+CELERY_BROKER_URL = 'redis://:password@localhost:6379/0'
+CELERY_BROKER_URL = 'rediss://localhost:6379/0'          # note the double 's' for TLS
+
+# RabbitMQ (amqp) — pyamqp is the pure-Python transport
+CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+CELERY_BROKER_URL = 'pyamqp://user:pass@hostname:5672/vhost'
+
+# Amazon SQS (URL-encode the keys with kombu.utils.url.safequote)
+CELERY_BROKER_URL = 'sqs://AWS_ACCESS_KEY:AWS_SECRET_KEY@'
+CELERY_BROKER_URL = 'sqs://'                              # when using env vars / IAM roles
+```
+
+> For SQS, prefer the `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` env vars (or IAM roles) so credentials aren't placed in `settings.py`. Never expose the SQS URL with `DEBUG=True` in production.
+
+### Result Backend URL Formats (alternatives to `django-db`)
+
+Swap the value of `CELERY_RESULT_BACKEND`:
+
+```python
+# Django ORM (via django-celery-results)
+CELERY_RESULT_BACKEND = 'django-db'
+
+# Redis
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+# RPC — sends results back as transient AMQP messages (RabbitMQ)
+CELERY_RESULT_BACKEND = 'rpc://'
+
+# SQLAlchemy / relational database
+CELERY_RESULT_BACKEND = 'db+postgresql://user:pass@localhost/dbname'
+CELERY_RESULT_BACKEND = 'db+mysql://user:pass@localhost/dbname'
+
+# MongoDB
+CELERY_RESULT_BACKEND = 'mongodb://localhost:27017/celery'
+
+# Memcached
+CELERY_RESULT_BACKEND = 'cache+memcached://localhost:11211/'
+```
+
+**Common pairings:**
+
+- **RabbitMQ broker + RPC backend** → `broker='pyamqp://'`, `backend='rpc://'`
+- **RabbitMQ broker + Redis backend** → `broker='pyamqp://'`, `backend='redis://localhost'` (very popular)
+- **Redis broker + Redis backend** → simplest single-service setup
+- **SQS broker** → do **not** use the `amqp`/`rpc` result backend with it (creates one uncollected queue per task); pair with Redis, a database, or `django-db`.
+
+> For long-term persistence of results, the docs recommend PostgreSQL/MySQL (via SQLAlchemy) or Cassandra over the transient RPC backend.
+
+---
+
+## 5. Create `<project>/tasks.py`
 
 ```python
 from celery import shared_task
@@ -366,54 +500,154 @@ def add(x, y):
     return x + y
 ```
 
-> Avoid defining a second `Celery()` instance here. Import the app from `celery.py` or use `@shared_task` so tasks aren't bound to a specific app.
+> **Avoid** defining a second `Celery()` instance here. Import the app from `celery.py` or use `@shared_task` so tasks aren't bound to a specific app.
+>
+> Place `tasks.py` in your **sub app** (e.g. `settle_subscribe/tasks.py`), **not** in the main config app folder.
 
-### 6. Start the Worker
+### Calling a Task
+
+Tasks are triggered asynchronously with `.delay()` (shorthand) or `.apply_async()` (full control):
+
+```python
+from .tasks import add
+
+# Fire and forget
+add.delay(4, 6)
+
+# With more options (countdown, eta, queue, etc.)
+add.apply_async(args=[4, 6], countdown=10)
+```
+
+Example call from a view:
+
+```python
+from django.http import HttpResponse
+from .tasks import add
+
+def run_task(request):
+    add.delay(4, 6)
+    return HttpResponse("Task queued")
+```
+
+---
+
+## 6. Start the Worker
 
 ```bash
 celery multi start w1 -A settlesubscribe -l INFO
 ```
 
-Expected output:
+**Expected output:**
 
+```
 Starting nodes...
 > w1@MacBook-Pro-8.local: OK
+```
 
-https://docs.celeryq.dev/en/latest/getting-started/next-steps.html#project-layout
-https://docs.celeryq.dev/en/latest/getting-started/first-steps-with-celery.html#first-steps
+### Running a standard worker (specify your Django project name)
 
-### Backend (S3, other providers) Configurations
-https://docs.celeryq.dev/en/stable/userguide/configuration.html#std-setting-beat_schedule
+```bash
+celery -A [project-name] worker --loglevel=info
+```
 
-### Note: Install the redis package, or any other backend in your django project than this set up would work
-`pip3 install redis`
+### Running the beat scheduler
 
-Start a Celery worker service (specify your Django project name):
-`celery -A [project-name] worker --loglevel=info`
+```bash
+celery -A [project-name] beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+celery -A [project-name] beat -l info -S django
+```
 
-This command runs the celery worker
+> These commands shift Celery-related work to the database and create the relevant tables there.
+
+---
+
+## 7. Sample `celery.py` with Code-Based Scheduling
+
+Use `app.conf.beat_schedule` to schedule tasks **through code** rather than the admin panel.
+
+```python
+import os
+from celery import Celery
+from celery.schedules import crontab
+
+# Set the default Django settings module for the 'celery' program.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settlesubscribe.settings')
+
+app = Celery('settlesubscribe')
+
+# Using a string here means the worker doesn't have to serialize
+# the configuration object to child processes.
+# namespace='CELERY' means all celery-related configuration keys
+# should have a `CELERY_` prefix.
+app.config_from_object('django.conf:settings', namespace='CELERY')
+
+# Load task modules from all registered Django apps.
+app.autodiscover_tasks()
+
+app.conf.beat_schedule = {
+    'add-every-30-seconds': {
+        'task': 'settle_subscribe.tasks.test',
+        'schedule': 30.0,
+        'args': ("heloo world",)
+    },
+}
 
 
-`celery -A [project-name] beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler`
-`celery -A [project-name] beat -l info -S django`
-
-These commands will shift celery related work to the database and create tables there.
-
-https://docs.celeryq.dev/en/v5.5.3/django/first-steps-with-django.html
-
-Guide for Setting Up Celery with Django.
+@app.task(bind=True, ignore_result=True)
+def debug_task(self):
+    print(f'Request: {self.request!r}')
 
 
+@app.task(bind=True, ignore_result=True)
+def new_task(self):
+    print(f'Request: {self.request!r}')
 
 
+if __name__ == '__main__':
+    app.start()
+```
 
+### Optional: Periodic tasks via signal (reference)
 
+```python
+# @app.on_after_configure.connect
+# def setup_periodic_tasks(sender: Celery, **kwargs):
+#     # Calls test('hello') every 10 seconds.
+#     sender.add_periodic_task(10.0, new_task('hello'), name='add every 10')
+#
+#     # Calls test('hello') every 30 seconds.
+#     sender.add_periodic_task(30.0, new_task('hello'), name='add every 30')
+#
+#     # Calls test('world') every 30 seconds.
+#     sender.add_periodic_task(30.0, new_task('world'), expires=10)
+#
+#     # Executes every Monday morning at 7:30 a.m.
+#     sender.add_periodic_task(
+#         crontab(hour=7, minute=30, day_of_week=1),
+#         new_task('Happy Mondays!'),
+#     )
+```
 
+---
 
+## 8. Monitoring with Flower
 
+```bash
+pip install flower
+celery -A proj flower
+```
 
+Running the `flower` command starts a web server you can visit in the browser for monitoring.
 
+---
 
+## Reference Links
 
-
-
+- **Project layout:** https://docs.celeryq.dev/en/latest/getting-started/next-steps.html#project-layout
+- **First steps with Celery:** https://docs.celeryq.dev/en/latest/getting-started/first-steps-with-celery.html#first-steps
+- **First steps with Django:** https://docs.celeryq.dev/en/v5.5.3/django/first-steps-with-django.html
+- **Configuration (backends, S3, etc.):** https://docs.celeryq.dev/en/stable/userguide/configuration.html#std-setting-beat_schedule
+- **Periodic tasks:** https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html
+- **Brokers & backends overview:** https://docs.celeryq.dev/en/latest/getting-started/backends-and-brokers/index.html#broker-overview
+- **Monitoring guide (very important):** https://docs.celeryq.dev/en/stable/userguide/monitoring.html
+- **Example complete project:** https://github.com/celery/celery/tree/main/examples/django/
