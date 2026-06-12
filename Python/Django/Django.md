@@ -289,10 +289,6 @@ UserSubscriptions.objects.create
         )
 ```
 
-## Celery Setup on Django 
-
-### 1. Install Celery
-
 # Setting Up Celery with Django
 
 A guide for configuring Celery with Django, including periodic tasks, result backends, and monitoring.
