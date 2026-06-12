@@ -303,6 +303,21 @@ For Redis broker/backend support:
 pip3 install "celery[redis]"
 ```
 
+### Additional Installation packages
+
+`pip install django-celery-beat` 
+`python manage.py migrate`
+`celery -A proj beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler`
+
+Visit the Django-Admin interface to set up some periodic tasks.
+
+
+
+
+
+
+
+
 For RabbitMQ (amqp), broker support ships with Celery, but you need the RabbitMQ server installed and running.
 
 ### 2. Create Runtime Directories
@@ -372,5 +387,33 @@ https://docs.celeryq.dev/en/stable/userguide/configuration.html#std-setting-beat
 
 ### Note: Install the redis package, or any other backend in your django project than this set up would work
 `pip3 install redis`
+
+Start a Celery worker service (specify your Django project name):
+`celery -A [project-name] worker --loglevel=info`
+
+This command runs the celery worker
+
+
+`celery -A [project-name] beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler`
+`celery -A [project-name] beat -l info -S django`
+
+These commands will shift celery related work to the database and create tables there.
+
+https://docs.celeryq.dev/en/v5.5.3/django/first-steps-with-django.html
+
+Guide for Setting Up Celery with Django.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
