@@ -4,6 +4,8 @@
 *Written the way a senior engineer with 20+ years would mentor a sharp junior: every term defined the first time it appears, every concept given both the theory and the production reality, and every phase ending in something you can point at and explain under pressure.*
 
 ---
+file:///Users/dev/Downloads/Visual%20companion.html#train
+---
 
 ## How to read this document
 
